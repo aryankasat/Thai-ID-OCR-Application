@@ -1,4 +1,4 @@
-from google.cloud.vision import vision
+import google.cloud.vision 
 from google.cloud.vision_v1 import types
 import json,os
 
@@ -10,7 +10,7 @@ os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'google_credentials.json'
 def process_ocr(image_content):
 
     #configuring the Google Vision API
-    client = vision.ImageAnnotatorClient()
+    client = google.cloud.vision.ImageAnnotatorClient()
     image = types.Image(content=image_content)
 
     response = client.text_detection(image=image)
