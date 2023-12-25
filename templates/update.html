@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upadting Thai Indentity Card </title>
+</head>
+
+<body>
+    <h2> Updating the Identity Card</h2>
+    <form action="/update" method="get">
+        <label>Old Identification Number:</label>
+        <input type="number" name="old_identification_number">
+        <br>
+        <br>
+        <label>New Name:</label>
+        <input type="text" name="new_name">
+        <br>
+        <label>New Last Name:</label>
+        <input type="text" name="new_last_name">
+        <br>
+        <label>New Identification Number:</label>
+        <input type="number" name="new_identification_number">
+        <br>
+        <label>New Date Of Issue:</label>
+        <input type="date" name="new_date_of_issue">
+        <br>
+        <label>New Date of Expiry:</label>
+        <input type="date" name="new_date_of_expiry">
+        <br>
+        <label>New Date of Birth:</label>
+        <input type="date" name="new_date_of_birth">
+        <br>
+    </form>
+    <br>
+    <button type="submit">Submit</button>
+
+    <h2>New OCR Results</h2>
+    {%for result in output%}
+        <p> {{result}}</p>
+    {%endfor%}
+</body>
+</html>

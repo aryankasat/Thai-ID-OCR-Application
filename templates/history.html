@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Thai Identity card</title>
+</head>
+
+<body>
+    <h2>OCR History</h2>
+    <form action="/history" method="get">
+        <label>Date of Birth:</label>
+        <input type="date" name="date_of_birth">
+        <label>Identification Number:</label>
+        <input type="number" name="identification_number">
+        <br>
+        <br>
+        <button type="submit">Filter</button>
+    </form>
+
+    {{[{"timestamp": record.timestamp, "status": record.status, "ocr_result": record.ocr_result} for record in output]}}
+    <!-- <div id="ocrHistory"></div>
+    <script>
+        async function filterHistory() {
+            const dateOfBirth = document.querySelector('input[name="date_of_birth"]').value;
+            const identificationNumber = document.querySelector('input[name="identification_number"]').value;
+
+            try {
+                const response = await fetch(`/history?date_of_birth=${dateOfBirth}&identification_number=${identificationNumber}`);
+                const filteredHistory = await response.json();
+
+                // Display filtered history
+                const ocrHistoryDiv = document.getElementById('ocrHistory');
+                ocrHistoryDiv.innerHTML = '';
+
+                if (filteredHistory.length > 0) {
+                    filteredHistory.forEach(result => {
+                        const p = document.createElement('p');
+                        p.textContent = result;
+                        ocrHistoryDiv.appendChild(p);
+                    });
+                } else {
+                    ocrHistoryDiv.textContent = 'No results found.';
+                }
+            } catch (error) {
+                console.error('Error fetching filtered history:', error);
+            }
+        }
+    </script> -->
+</body>
+</html>
