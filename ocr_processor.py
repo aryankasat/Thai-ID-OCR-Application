@@ -1,9 +1,9 @@
 from google.cloud import vision
-from google.cloud.vision import types
+from google.cloud.vision_v1 import types
 import json,os
 
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'google_credentials.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'google_credentials.json'
 
 
 #processing of the image which the user has uploaded

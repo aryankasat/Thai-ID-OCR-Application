@@ -17,8 +17,6 @@ class OCRRecord(db.Model):
     status = db.Column(db.String(10))
     ocr_result = db.Column(db.JSON)
 
-db.init_app(None)
-
 #creation of new entry in the database
 def create_ocr_record(result):
     record = OCRRecord(status="success", ocr_result=result)

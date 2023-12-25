@@ -9,7 +9,7 @@
 
 <body>
     <h2>OCR History</h2>
-    <form action="/history" method="get">
+    <form action="/history" method="post">
         <label>Date of Birth:</label>
         <input type="date" name="date_of_birth">
         <label>Identification Number:</label>
@@ -20,33 +20,5 @@
     </form>
 
     {{[{"timestamp": record.timestamp, "status": record.status, "ocr_result": record.ocr_result} for record in output]}}
-    <!-- <div id="ocrHistory"></div>
-    <script>
-        async function filterHistory() {
-            const dateOfBirth = document.querySelector('input[name="date_of_birth"]').value;
-            const identificationNumber = document.querySelector('input[name="identification_number"]').value;
-
-            try {
-                const response = await fetch(`/history?date_of_birth=${dateOfBirth}&identification_number=${identificationNumber}`);
-                const filteredHistory = await response.json();
-
-                // Display filtered history
-                const ocrHistoryDiv = document.getElementById('ocrHistory');
-                ocrHistoryDiv.innerHTML = '';
-
-                if (filteredHistory.length > 0) {
-                    filteredHistory.forEach(result => {
-                        const p = document.createElement('p');
-                        p.textContent = result;
-                        ocrHistoryDiv.appendChild(p);
-                    });
-                } else {
-                    ocrHistoryDiv.textContent = 'No results found.';
-                }
-            } catch (error) {
-                console.error('Error fetching filtered history:', error);
-            }
-        }
-    </script> -->
 </body>
 </html>

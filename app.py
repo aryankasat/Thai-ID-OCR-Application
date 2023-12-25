@@ -31,15 +31,15 @@ def upload():
         return render_template('index.html',output)
     except Exception as e:
         output = jsonify({"error": str(e)}), 500
-        return render_template('index.html',output)
+        return output
 
 #page for the checking the already fed data into the database
-@app.route('/history', methods=['GET'])
+@app.route('/history', methods=['post'])
 def history():
     date_of_birth = request.form.get('date_of_birth')
     identification_number = request.form.get('identification_number')
     output = jsonify(get_ocr_data(date_of_birth,identification_number))
-    return render_template('history.html',output = output)
+    return render_template('history.html', output)
     
 
 #page for deleting any record in the database
@@ -52,7 +52,7 @@ def delete_record():
 
 
 #page for updating any data in the database
-@app.route('/update',methods=['POST'])
+@app.route('/update',methods=['POST','GET'])
 def update_record(identification_number,result):
     old_identification_number = request.form.get('old_identification_number')
     new_name = request.form.get('new_name')
@@ -73,7 +73,6 @@ def update_record(identification_number,result):
     create_ocr_record(result)
     output = jsonify(result)
     return render_template('update.html',output)
-
 
 if __name__ == '__main__':
     app.run(debug=True)
