@@ -1,4 +1,4 @@
-from google.cloud import vision
+from google.cloud.vision import vision
 from google.cloud.vision_v1 import types
 import json,os
 
