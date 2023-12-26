@@ -8,15 +8,8 @@
 </head>
 <body>
     <h1>Optical Character Recognition for IDs</h1>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <div>
-            <input type="file" name="file" accept=".png, .jpg, .jpeg" required>
-        </div>
-        <br>
-        <div>
-            <button type="submit">Upload</button>
-        </div>
-    </form>
+    <input type="file" id="fileInput" />
+    <button onclick="uploadImage()">Upload Image</button>
 
     <br>
     <hr>

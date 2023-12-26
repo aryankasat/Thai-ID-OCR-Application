@@ -9,26 +9,26 @@ db.init_app(app)
 #welcome page for the users
 @app.route('/')
 def index():
-    return render_template('welcome.html')
+    return render_template('index.html')
 
 #page for uploading the identity cards for the users
-@app.route('/upload', methods=['POST'])
+@app.route('/upload',methods = ['POST','GET'])
 def upload():
     if 'file' not in request.files:
         output = jsonify({"error": "No file part"}), 400
-        return render_template('index.html',output)
+        return output
     
     file = request.files['file']
 
     if file.filename == '':
         output = jsonify({"error": "Invalid file"}), 400
-        return render_template('index.html',output)
+        return output
 
     try:
         result = process_ocr(file.read())
         create_ocr_record(result)
         output = jsonify(result)
-        return render_template('index.html',output)
+        return output
     except Exception as e:
         output = jsonify({"error": str(e)}), 500
         return output
@@ -52,7 +52,7 @@ def delete_record():
 
 
 #page for updating any data in the database
-@app.route('/update',methods=['POST','GET'])
+@app.route('/update',methods=['POST'])
 def update_record(identification_number,result):
     old_identification_number = request.form.get('old_identification_number')
     new_name = request.form.get('new_name')
