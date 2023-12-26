@@ -17,7 +17,7 @@ def upload():
     if 'file' not in request.files:
         output = jsonify({"error": "No file part"}), 400
         return render_template('index.html',output)
-
+    
     file = request.files['file']
 
     if file.filename == '':
@@ -34,7 +34,7 @@ def upload():
         return output
 
 #page for the checking the already fed data into the database
-@app.route('/history', methods=['post'])
+@app.route('/history', methods=['POST'])
 def history():
     date_of_birth = request.form.get('date_of_birth')
     identification_number = request.form.get('identification_number')
