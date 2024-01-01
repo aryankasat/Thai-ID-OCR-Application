@@ -9,12 +9,14 @@
 
 <body>
     <h2> Deleting Thai Identity Card</h2>
-    <form action="/delete" method="delete">
+    <form action="/delete" method="delete" enctype='multipart/form-data'>
         <label> Identification Number:</label>
         <input type="number" name="identification_number">
         <br>
         <br>
         <button type="submit">Delete</button>
     </form>
+
+    {{output}}
 </body>
 </html>

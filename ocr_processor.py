@@ -5,7 +5,6 @@ import json,os
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'google_credentials.json'
 
-
 #processing of the image which the user has uploaded
 def process_ocr(image_content):
 

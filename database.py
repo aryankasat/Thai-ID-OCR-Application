@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
+import json
 db = SQLAlchemy()
 
 db_uri = 'mysql://root:Aruboi2001!@localhost/ocr'
@@ -32,16 +32,24 @@ def get_ocr_data(date_of_birth,identification_number):
 
     if identification_number:
         query = query.filter(OCRRecord.ocr_result['identification_number']==identification_number)
-
+    
     ocr_data = query.all()
     return ocr_data
 
 #updating data in database
-def update_ocr_data(record_id, new_status):
-    record = OCRRecord.query.get(record_id)
-    if record:
-        record.status = new_status
-        db.session.commit()
+def update_ocr_data(record_id, value,name):
+    query = OCRRecord.query
+    record = query.filter (OCRRecord.ocr_result['identification_number'] == record_id)
+    new_record = None
+    r = record.all()
+    if len(r) >=3:
+        record_json = r[3]
+        record_json_loads = json.loads(record_json)
+        if record:
+            record_json_loads.name = value
+            db.session.commit()
+        new_record = query.filter(OCRRecord.ocr_result['idetification_number'] == record_id)
+    return new_record
 
 #deleting data from database
 def delete_ocr_record(record_id):

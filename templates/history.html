@@ -9,7 +9,7 @@
 
 <body>
     <h2>OCR History</h2>
-    <form action="/history" method="post">
+    <form action="/history" method="POST" >
         <label>Date of Birth:</label>
         <input type="date" name="date_of_birth">
         <label>Identification Number:</label>
@@ -19,6 +19,11 @@
         <button type="submit">Filter</button>
     </form>
 
-    {{[{"timestamp": record.timestamp, "status": record.status, "ocr_result": record.ocr_result} for record in output]}}
+    {% for record in output%}
+    {{record.timestamp}}
+    {{record.status}}
+    {{record.ocr_result}}
+    {%endfor%}
+    
 </body>
 </html>

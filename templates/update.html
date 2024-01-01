@@ -4,37 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upadting Thai Indentity Card </title>
+    <title>Updating Thai Indentity Card </title>
 </head>
 
 <body>
     <h2> Updating the Identity Card</h2>
-    <form action="/update" method="get">
+    <form action="/update" method="POST" enctype='multipart/form-data'>
         <label>Old Identification Number:</label>
         <input type="number" name="old_identification_number">
         <br>
         <br>
-        <label>New Name:</label>
-        <input type="text" name="new_name">
+        <label> Choose the update:</label>
+        <input type="text" name="name">
         <br>
-        <label>New Last Name:</label>
-        <input type="text" name="new_last_name">
         <br>
-        <label>New Identification Number:</label>
-        <input type="number" name="new_identification_number">
+        <label> Value to be changed:</label>
+        <input type="text" name="change">
+
         <br>
-        <label>New Date Of Issue:</label>
-        <input type="date" name="new_date_of_issue">
-        <br>
-        <label>New Date of Expiry:</label>
-        <input type="date" name="new_date_of_expiry">
-        <br>
-        <label>New Date of Birth:</label>
-        <input type="date" name="new_date_of_birth">
-        <br>
+        <button type="submit">Submit</button>
     </form>
-    <br>
-    <button type="submit">Submit</button>
 
     <h2>New OCR Results</h2>
     {%for result in output%}
