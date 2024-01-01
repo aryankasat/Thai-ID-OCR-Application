@@ -55,9 +55,39 @@ def delete_record():
 @app.route('/update',methods=["POST",'GET'])
 def update_record():
     old_identification_number = request.form.get('old_identification_number')
-    name = request.form.get('name')
-    value = request.form.get('change')
-    result = update_ocr_data(old_identification_number,value,name)
+    value1 = request.form.get('value1')
+    value2 = request.form.get('value2')
+    value3 = request.form.get('value3')
+    value4 = request.form.get('value4')
+    value5 = request.form.get('value5')
+    value6 = request.form.get('value6')
+    name={}
+    if value1 is not None:
+        name['Name'] = value1
+    else:
+        name['Name'] = " "
+    if value2 is not None:
+        name['Last_Name'] = value2
+    else:
+        name['Last_Name'] = " "
+    if value3 is not None:
+        name['Identification_number'] = value3
+    else:
+        name['Identification'] = " "
+    if value4 is not None:
+        name['Date_of_issue'] = value4
+    else:
+        name['Date_of_issue'] = " "
+    if value5 is not None:
+        name['Date_of_expiry'] = value5
+    else:
+        name['Date_of_expiry'] = " "
+    if value6 is not None:
+        name['Date_of_birth'] = value6
+    else:
+        name['Date_of_birth'] = " "
+    
+    result = update_ocr_data(old_identification_number,name)
     output = jsonify(result)
     return render_template('update.html',data = output)
 

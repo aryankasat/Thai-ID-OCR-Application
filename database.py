@@ -37,18 +37,20 @@ def get_ocr_data(date_of_birth,identification_number):
     return ocr_data
 
 #updating data in database
-def update_ocr_data(record_id, value,name):
+def update_ocr_data(record_id, name):
     query = OCRRecord.query
     record = query.filter (OCRRecord.ocr_result['identification_number'] == record_id)
     new_record = None
-    r = record.all()
-    if len(r) >=3:
-        record_json = r[3]
-        record_json_loads = json.loads(record_json)
-        if record:
-            record_json_loads.name = value
+    if record:
+        r = record.all()
+        if len(r) >=3:
+            record_json = r[3]
+            record_json_loads = json.loads(record_json)
+            for key in name:
+                if name[key] != " ":
+                    record_json_loads.key = name[key]
             db.session.commit()
-        new_record = query.filter(OCRRecord.ocr_result['idetification_number'] == record_id)
+            new_record = query.filter(OCRRecord.ocr_result['idetification_number'] == record_id)
     return new_record
 
 #deleting data from database
