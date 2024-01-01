@@ -18,22 +18,22 @@ I have used the MySQL database in order to store the required data. The schema f
 
 1. *Upload Image and perform OCR*
    - Endpoint - '/upload'
-   - Method - 'POST'
+   - Method - 'POST', 'GET'
    - Description - It lets the user upload the image followed by extraction of essential information from the same.
 
 2. *Fetches the Filtered data based on the filters applied by the user*
    - Endpoint - '/history'
-   - Method - 'POST'
+   - Method - 'POST', 'GET'
    - Description - It lets users filter the data based on the selection of his/her choice.
   
 3. *Deleting data from the database*
     - Endpoint - '/delete'
-    - Method - 'DELETE'
+    - Method - 'DELETE', 'POST','GET'
     - Description - It allows users to delete any instance from the database
 
-4. *Updating deata in the database*
+4. *Updating data in the database*
      - Endpoint - '/update'
-     - Method - 'POST'
+     - Method - 'POST', 'GET'
      - Description - It allows users to update any query in the database
 
 ## Frontend
