@@ -20,26 +20,36 @@ I have used the MySQL database in order to store the required data. The schema f
    - Endpoint - '/upload'
    - Method - 'POST', 'GET'
    - Description - It lets the user upload the image followed by extraction of essential information from the same.
+     ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/5c148e0e-f28a-42cb-aec5-dc0d6d025f6b)
 
 2. *Fetches the Filtered data based on the filters applied by the user*
    - Endpoint - '/history'
    - Method - 'POST', 'GET'
    - Description - It lets users filter the data based on the selection of his/her choice.
+     ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/1f5a0ede-ba06-4152-b097-5cd5170237fe)
+
   
 3. *Deleting data from the database*
     - Endpoint - '/delete'
     - Method - 'DELETE', 'POST','GET'
     - Description - It allows users to delete any instance from the database
+      ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/4aa910f6-2279-4274-ad58-d2e17f860f28)
 
 4. *Updating data in the database*
      - Endpoint - '/update'
      - Method - 'POST', 'GET'
      - Description - It allows users to update any query in the database
+       ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/7182b875-f7c5-4d9b-9d6b-28257cfb86d7)
 
 ## Frontend
 I have used separate HTML files for each page creating an entire new feel about for the user.
 
 ## Running the frontend 
-1. Run pip install -r requirements.txt to install dependencies
+1. Run ~~~pip install -r requirements.txt to install dependencies
 2. Execute python app.py to start the Flask Development Server
 3. Open your browser and navigate to http://127.0.0.1:5000 to view the application
+
+## Deployment of the OCR System to Production
+1. Used the Python Anywhere application to host the application
+2. Run the ~~~pip3 install -r requirements --user to download the dependencies of the code
+3. Use the application seamlessly on [https://ocridscanner.pythonanywhere.com]
