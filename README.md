@@ -20,7 +20,7 @@ I have used the MySQL database in order to store the required data. The schema f
    - Endpoint - '/upload'
    - Method - 'POST', 'GET'
    - Description - It lets the user upload the image followed by extraction of essential information from the same.
-     ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/5c148e0e-f28a-42cb-aec5-dc0d6d025f6b)
+     ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/65fdd41c-9880-461a-8cee-dd84e931de18)
 
 2. *Fetches the Filtered data based on the filters applied by the user*
    - Endpoint - '/history'
