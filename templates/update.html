@@ -11,29 +11,27 @@
     <h2> Updating the Identity Card</h2>
     <form action="/update" method="POST" enctype='multipart/form-data'>
         <label>Old Identification Number:</label>
-        <input type="number" name="old_identification_number">
-        <br>
-        <br>
-        <label >Name:</label>
+        <input type="text" name="old_identification_number">
+        <label>Name:</label>
         <input type="text" name="value1">
         <label > Last Name:</label>
         <input type="text" name="value2">
-        <label >Idetification Number:</label>
-        <input type="number" name="value3">
+        <label >Identification Number:</label>
+        <input type="text" name="value3">
         <label >Date of issue</label>
-        <input type="date" name="value4">
+        <input type="text" name="value4">
         <label >Date of expiry:</label>
-        <input type="date" name="value5">
+        <input type="text" name="value5">
         <label >Date of Birth:</label>
-        <input type="date" name="value6">
-
-        <br>
+        <input type="text" name="value6">
         <button type="submit">Submit</button>
     </form>
 
     <h2>New OCR Results</h2>
-    {%for result in output%}
-        <p> {{result}}</p>
+    {%for result in data%}
+        <p>{{result.timestamp}}</p>
+        <p>{{result.status}}</p>
+        <p>{{result.ocr_result}}</p>
     {%endfor%}
 </body>
 </html>
