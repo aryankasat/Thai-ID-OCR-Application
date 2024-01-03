@@ -58,7 +58,7 @@ def get_ocr_data_identification(identification_number):
 def update_ocr_data(old_identification_number, name):
     query = OCRRecord.query
 
-    if old_identification_number:
+    if old_identification_number != 0:
         query = query.filter(OCRRecord.ocr_result['id_number']==old_identification_number)
     
     ocr_data = query.all()
@@ -69,24 +69,27 @@ def update_ocr_data(old_identification_number, name):
     for r in ocr_data:
         num = r.id
     update = OCRRecord.query.get(num)
-    print (update)
+    print (name)
+    print (type(name))
     if update:
-        if name['name'] is not None:
-            update.ocr_result['name'] = name['name']
-            print ("aaaaaaaaaaaaaaaaaaaa")
-        if name['last_name'] is not None:
-            update.ocr_result['last_name'] = name['last_name']
-        if name['id_number'] is not None:
-            update.ocr_result['id_number'] = name['id_number']
-        if name['date_of_birth'] is not None:
-            update.ocr_result['date_of_birth'] = name['date_of_birth']
-        if name['date_of_issue'] is not None:
-            update.ocr_result['date_of_issue'] = name['date_of_issue']
-        if name['date_of_expiry'] is not None:
-            update.ocr_result['date_of_expiry'] = name['date_of_expiry']
+        if name['name'] is '':
+            name['name'] = update.ocr_result['name']
+        if name['last_name'] is '':
+            name['last_name'] =update.ocr_result['last_name']
+        if name['id_number'] is '':
+            name['id_number'] = update.ocr_result['id_number']
+        if name['date_of_birth'] is '':
+            name['date_of_birth'] = update.ocr_result['date_of_birth']
+        if name['date_of_issue'] is  '':
+            name['date_of_issue'] = update.ocr_result['date_of_issue']
+        if name['date_of_expiry'] is '':
+            name['date_of_expiry'] = update.ocr_result['date_of_expiry']
+        update.ocr_result = name
         db.session.commit()
     query = query.filter(OCRRecord.ocr_result['id_number'] == old_identification_number)
     new_record = query.all()
+    for new in new_record:
+        print (new.ocr_result)
     return new_record
 
 #deleting data from database

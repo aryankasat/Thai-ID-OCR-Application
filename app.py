@@ -31,7 +31,6 @@ def upload():
             result = process_ocr(file.filename)
             print (result)
             create_ocr_record(result)
-            output = jsonify(result)
             output = result
         except Exception as e:
             output = jsonify({"error": str(e)}), 500
