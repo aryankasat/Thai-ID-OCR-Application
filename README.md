@@ -35,10 +35,10 @@ I have used the MySQL database in order to store the required data. The schema f
     - Description - It allows users to delete any instance from the database
       ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/4aa910f6-2279-4274-ad58-d2e17f860f28)
 
-4. *Updating data in the database*
+4. *Updating/Editing data in the database*
      - Endpoint - '/update'
      - Method - 'POST', 'GET'
-     - Description - It allows users to update any query in the database
+     - Description - It allows users to update/edit any field (one or many) of an ID card already present in the database.
        ![image](https://github.com/aryankasat/Thai-ID-OCR-Application/assets/33005008/7182b875-f7c5-4d9b-9d6b-28257cfb86d7)
 
 ## Frontend
