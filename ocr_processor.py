@@ -2,7 +2,8 @@ from google.cloud import vision
 import os,io
 
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r'google_credentials.json'
+
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r"google_credentials.json"
 
 #processing of the image which the user has uploaded
 def process_ocr(filename):
