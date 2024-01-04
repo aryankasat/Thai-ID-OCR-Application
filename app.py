@@ -4,6 +4,7 @@ from wtforms import FileField, SubmitField
 from wtforms.validators import InputRequired
 from werkzeug.utils import secure_filename
 import os
+import json
 from ocr_processor import process_ocr
 from database import create_ocr_record, get_ocr_data, update_ocr_data, delete_ocr_record,db,db_config,get_ocr_data_identification,get_ocr_data_dob
 
@@ -31,7 +32,9 @@ def upload():
             result = process_ocr(file.filename)
             print (result)
             create_ocr_record(result)
-            output = result
+            result_json = json.dumps(result)
+            print (result_json)
+            output.append(result_json)
         except Exception as e:
             output = jsonify({"error": str(e)}), 500
     return render_template ('index.html',form=form, output = output)
