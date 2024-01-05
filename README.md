@@ -50,6 +50,7 @@ I have used separate HTML files for each page creating an entire new feel about 
 3. Open your browser and navigate to http://127.0.0.1:5000 to view the application
 
 ## Deployment of the OCR System to Production
-1. Used the Python Anywhere application to host the application
+1. Used the AWS - EC2 application to host the application
 2. Run the ~~~pip3 install -r requirements --user to download the dependencies of the code
-3. Use the application seamlessly on [https://ocridscanner.pythonanywhere.com]
+3. I have configured the SQL database on the server for database-related tasks and API credentials for performing the API related tasks
+4. Use the application seamlessly on [[https://ocridscanner.pythonanywhere.com](http://13.54.31.10:8000/)http://13.54.31.10:8000/]
