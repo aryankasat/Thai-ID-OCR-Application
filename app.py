@@ -24,7 +24,7 @@ class UploadFileForm(FlaskForm):
 @app.route('/upload',methods = ["POST",'GET'])
 def upload():
     form = UploadFileForm()
-    output =[]
+    output ={}
     if form.validate_on_submit():
         file = form.file.data
         file.save(os.path.join(os.path.abspath(os.path.dirname(__file__)),app.config['UPLOAD_FOLDER'],secure_filename(file.filename)))
@@ -32,9 +32,7 @@ def upload():
             result = process_ocr(file.filename)
             print (result)
             create_ocr_record(result)
-            result_json = json.dumps(result)
-            print (result_json)
-            output.append(result_json)
+            output = result
         except Exception as e:
             output = jsonify({"error": str(e)}), 500
     return render_template ('index.html',form=form, output = output)
